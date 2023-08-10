@@ -38,25 +38,28 @@ import roughViz from "../src";
 // );
 
 // ERROR WHEN x undefined
-// new roughViz.Line(
-//   {
-//     element: '#vis1',
-//     data: {
-//       // y: [100, 200, 300, 200, 500, 300],
-//       // z: [100, 300, 100, 300, 100, 30, 30, 400, 500, 500, 500, 500],
-//       // q: [10, 20, 10, 20, 10, 20, 45, 45, 45],
-//       // q2: [50, 50, 50, 600, 50, 50, 50]
-//       dan: [200, 2, 200, 5000]
-//       // r: [0, 0, 0, 350, 450, 550, 1000, 2000, 5000]
-//     },
-//     // x: ['day1', 'day2', 'day3', '444444'],
-//     width: 800,
-//     strokeWidth: 3 ,
-//     roughness: 2,
-//     axesFontSize: '25px',
-//     colors: ['orange', 'red', 'coral', 'tan']
-//   }
-// );
+new roughViz.Line(
+  {
+    element: '#vis1-line',
+    data: {
+      stage8Aug2023que: [0,54,412,735,913,1036,1839,1650,2066,2297,2315,2481,2680,2832,2997,2869,3323,3270,2842,2867,2639,2665,3104,2122,1710,1493,1183,329,0],
+      stage8Aug2023latency: [0,30.6,172.79999999999998,371.40000000000003,240.6,399,626.4,772.1999999999999,909,1116,1050,1063.8,1180.8,1392.6000000000001,1621.2,1734.6,1638.6,1829.3999999999999,1866,1945.8,2047.8000000000002,2068.2,1720.2,1196.4,824.4,991.1999999999999,1024.2,1015.2,0],
+      stage8Aug2023que2: [
+        0,311,524,441,843,857,1290,1942,2212,2024,2745
+      ],
+      stage8Aug2023latency2: [
+        0,108,169.2,211.79999999999998,266.40000000000003,427.8,539.4,504,681.5999999999999,798.6,1007.4
+      ]
+    },
+    x: ["2023-02-09T11:02","2023-06-09T11:06","2023-10-09T11:10","2023-14-09T11:14","2023-18-09T11:18","2023-23-09T11:23","2023-27-09T11:27","2023-31-09T11:31","2023-35-09T11:35","2023-39-09T11:39","2023-43-09T11:43","2023-47-09T11:47","2023-51-09T11:51","2023-55-09T11:55","2023-59-09T11:59","2023-03-09T12:03","2023-07-09T12:07","2023-11-09T12:11","2023-15-09T12:15","2023-19-09T12:19","2023-23-09T12:23","2023-27-09T12:27","2023-31-09T12:31","2023-35-09T12:35","2023-39-09T12:39","2023-43-09T12:43","2023-47-09T12:47","2023-51-09T12:51","2023-55-09T12:55"]
+      .map(e => e.split('T').pop()),
+    width: 800,
+    strokeWidth: 3 ,
+    roughness: 2,
+    axesFontSize: '25px',
+    colors: ['orange', 'red', 'coral', 'tan']
+  }
+);
 
 // new roughViz.Line(
 //   {
@@ -129,32 +132,32 @@ import roughViz from "../src";
 //   }
 // );
 
-new roughViz.BarH({
-  element: "#vis3",
-  data: {
-    labels: [
-      "Reggae",
-      "Rap",
-      "R&B",
-      "Dance House",
-      "Hip Hop",
-      "Trap",
-      "tre",
-      "eifj",
-    ],
-    values: [240, 40, 400, 90, 75, 315, 43, 1500],
-  },
-  width: window.innerWidth / 2,
-  title: "Genres",
-  roughness: 1,
-  highlight: "chocolate",
-  stroke: "grey",
-  padding: 0.15,
-  bowing: 6,
-  innerStrokeWidth: 0.5,
-  color: "white",
-  fillStyle: "dashed",
-});
+// new roughViz.BarH({
+//   element: "#vis3",
+//   data: {
+//     labels: [
+//       "Reggae",
+//       "Rap",
+//       "R&B",
+//       "Dance House",
+//       "Hip Hop",
+//       "Trap",
+//       "tre",
+//       "eifj",
+//     ],
+//     values: [240, 40, 400, 90, 75, 315, 43, 1500],
+//   },
+//   width: window.innerWidth / 2,
+//   title: "Genres",
+//   roughness: 1,
+//   highlight: "chocolate",
+//   stroke: "grey",
+//   padding: 0.15,
+//   bowing: 6,
+//   innerStrokeWidth: 0.5,
+//   color: "white",
+//   fillStyle: "dashed",
+// });
 
 // new roughViz.Bar(
 //   {
@@ -214,32 +217,53 @@ new roughViz.BarH({
 // );
 
 new roughViz.Scatter({
-  element: "#vis0",
-  data:
-    "https://raw.githubusercontent.com/uiuc-cse/data-fa14/gh-pages/data/iris.csv",
-  title: "Iris",
-  x: "sepal_width",
-  y: "petal_length",
-  colorVar: "species",
-  highlightLabel: "species",
-  fillWeight: 5.1,
-  radius: 12,
-  colors: ["pink", "coral", "skyblue"],
-  stroke: "black",
-  strokeWidth: 0.4,
-  roughness: 1,
-  // strokeWidth: 0.5,
-  // titleFontSize: '2rem',
-  // axesFontSize: '1.5rem',
-  // axisStrokeWidth: 0.4,
-  // axisRoughness: 2,
-  width: 400,
+  element: '#vis0',
+  data: 'https://raw.githubusercontent.com/plotly/datasets/master/gapminder2007.csv',
+  // data: 'http://127.0.0.1:63438/sidekiqWait/roughViz/examples/gapminder2007.csv',
+  // data:
+  // `country,pop,continent,lifeExp,gdpPercap
+  // Afghanistan,31889923.0,Asia,43.828,974.5803384
+  // Albania,3600523.0,Europe,76.423,5937.029525999999
+  // Algeria,33333216.0,Africa,72.301,6223.367465
+  // Angola,12420476.0,Africa,42.731,4797.231267`,
+  // title: 'Hans Rosling (Gapminder 2007)',
+  x: 'gdpPercap',
+  y: 'lifeExp',
+  radius: 'pop',
+  colorVar: 'continent',
+  highlightLabel: 'country',
+  roughness: 1.5,
+  width: window.innerWidth / 2,
   height: 500,
-  font: 0,
-  curbZero: false,
-  fillStyle: "crss-hatch",
-  // highlight: 'blue'
-});
+})
+
+// new roughViz.Scatter({
+//   element: "#vis0",
+//   data: "https://raw.githubusercontent.com/uiuc-cse/data-fa14/gh-pages/data/iris.csv",
+//   // data: 'https://raw.githubusercontent.com/plotly/datasets/master/gapminder2007.csv',
+//   title: "Iris",
+//   x: "sepal_width",
+//   y: "petal_length",
+//   colorVar: "species",
+//   highlightLabel: "species",
+//   fillWeight: 5.1,
+//   radius: 12,
+//   colors: ["pink", "coral", "skyblue"],
+//   stroke: "black",
+//   // strokeWidth: 0.4,
+//   roughness: 1,
+//   strokeWidth: 0.5,
+//   // titleFontSize: '2rem',
+//   // axesFontSize: '1.5rem',
+//   // axisStrokeWidth: 0.4,
+//   // axisRoughness: 2,
+//   width: 400,
+//   height: 300,
+//   font: 0,
+//   curbZero: false,
+//   fillStyle: "crss-hatch",
+//   highlight: 'teal'
+// });
 
 new roughViz.Donut({
   element: "#vis1",
@@ -299,29 +323,29 @@ new roughViz.Pie({
   fillWeight: 3.5,
 });
 
-// new roughViz.Donut(
-//   {
-//     element: '#vis2',
-//     data: 'https://raw.githubusercontent.com/jwilber/random_data/master/flavors.csv',
-//     title: 'roughViz.js',
-//     labels: 'flavor',
-//     values: 'price',
-//     // titleFontSize: '55px',
-//     width: 350,
-//     roughness: 0,
-//     // radius: 'petal_width',
-//     // colors: ['pink', 'coral', 'teal', 'skyblue', 'red', 'green', 'black', 'grey'],
-//     // bowing: 0.1,
-//     stroke: 'black',
-//     // innerStrokeWidth: 3,
-//     highlight: 'green',
-//     strokeWidth: 10,
-//     fillStyle: 'cross-hatch',
-//     height: 350,
-//     // font: 0,
-//     fillWeight: 2.5,
-//   }
-// );
+new roughViz.Donut(
+  {
+    element: '#vis2-dougnut',
+    data: 'https://raw.githubusercontent.com/jwilber/random_data/master/flavors.csv',
+    title: 'roughViz.js',
+    labels: 'flavor',
+    values: 'price',
+    // titleFontSize: '55px',
+    width: 350,
+    roughness: 0,
+    // radius: 'petal_width',
+    // colors: ['pink', 'coral', 'teal', 'skyblue', 'red', 'green', 'black', 'grey'],
+    // bowing: 0.1,
+    stroke: 'black',
+    // innerStrokeWidth: 3,
+    highlight: 'green',
+    strokeWidth: 10,
+    fillStyle: 'cross-hatch',
+    height: 350,
+    // font: 0,
+    fillWeight: 2.5,
+  }
+);
 
 // new roughViz.Donut(
 //   {
@@ -472,26 +496,26 @@ new roughViz.Pie({
 //   }
 // );
 
-new roughViz.Bar({
-  element: "#example",
-  data:
-    "https://gist.githubusercontent.com/mbostock/3310560/raw/98311dc46685ed02588afdcb69e5fa296febc1eb/letter-frequency.tsv",
-  labels: "letter",
-  values: "frequency",
-  height: window.innerHeight * 0.6,
-  width: window.innerWidth * 0.8,
-  roughness: 3,
-  color: "pink",
-  fillWeight: 1,
-  strokeWidth: 0.5,
-  fillStyle: "cross-hatch",
-  // roughness: 0,
-  stroke: "black",
-});
+// new roughViz.Bar({
+//   element: "#example",
+//   data:
+//     "https://gist.githubusercontent.com/mbostock/3310560/raw/98311dc46685ed02588afdcb69e5fa296febc1eb/letter-frequency.tsv",
+//   labels: "letter",
+//   values: "frequency",
+//   height: window.innerHeight * 0.6,
+//   width: window.innerWidth * 0.8,
+//   roughness: 3,
+//   color: "pink",
+//   fillWeight: 1,
+//   strokeWidth: 0.5,
+//   fillStyle: "cross-hatch",
+//   // roughness: 0,
+//   stroke: "black",
+// });
 
 // new roughViz.BarH(
 //   {
-//     element: '#vis7',
+//     element: '#example',
 //     // data: [[1,2], [5, 6], [8,8], [5, 100], [200, 10], [50, 50]],
 //     data: 'https://gist.githubusercontent.com/mbostock/3310560/raw/98311dc46685ed02588afdcb69e5fa296febc1eb/letter-frequency.tsv',
 //     title: 'Letters',
